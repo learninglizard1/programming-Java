@@ -19,4 +19,27 @@ public class whileExample {
 		System.out.println("Your selected option is: " + option);
 	}
  
+
 }
+
+========================================================================================================
+
+	
+import java.util.Scanner;
+
+public class Sentinel {
+	
+	public static void main (String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		int  option = 0;
+		
+		do {
+			System.out.println ("Select any number of choice: ");
+			System.out.println("0. Close program. \n1. Do something\n2. Do another thing");
+			option = scanner.nextInt();	
+		} while (option != 0);
+		scanner.close();
+	}
+}
+
