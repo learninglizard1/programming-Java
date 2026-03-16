@@ -45,7 +45,21 @@ public class MethodsExample1 {
         }
         
     }
-        
+
+===========================================================================================
+
+    public class Square {
+	public static void main (String [] args) {
+		double value = 10.5;
+		double square_value = square(value);
+		System.out.println("The square of: " + value + " is " + square_value);
+	}
+	
+	
+	private static double square(double num) {
+		return Math.pow(num, 2);
+	}
+}
     
 }   
 
