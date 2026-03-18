@@ -45,3 +45,31 @@ public class MethodOverloadingExample {
 			return num * num;
 	}
 }
+
+
+=====================================================================================================
+	public class MethodOverloadingExample2 {
+
+	public static void main(String[] args) {
+		System.out.println("Sum of two integers is " + sum(45, 87));
+		System.out.println("Sum of two integers is " + sum(45, 87, 67));
+		System.out.println("Sum of two integers is " + sum(45, 87, 56, 45));
+		System.out.println("Sum of two integers is " + sum(45, 65, 87, 56, 45));
+	}
+	
+	public static int sum(int num1, int num2) {
+		return num1 + num2;
+	}
+	
+	public static long sum(int num1, int num2, int num3) {
+		return sum(num1, num2) + num3;
+	}
+	
+	public static long sum(int num1, int num2, int num3, int num4) {
+		return sum(num1, num2, num3) + num4;
+	}
+	
+	public static long sum(int num1, int num2, int num3, int num4, int num5) {
+		return sum(num1, num2, num3, num4) + num4;
+	}
+}
