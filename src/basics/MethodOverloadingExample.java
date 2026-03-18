@@ -5,10 +5,10 @@ public class MethodOverloadingExample {
 			System.out.println("Square of byte is " + squareNumber(byteParam));
 
 			short shortParam = 320;
-		System.out.println("Square of short is " + squareNumber(shortParam));
+			System.out.println("Square of short is " + squareNumber(shortParam));
 			
-		int intParam = 1320;
-		System.out.println("Square of int is " + squareNumber(intParam));
+			int intParam = 1320;
+			System.out.println("Square of int is " + squareNumber(intParam));
 			
 			long longParam = 34320;
 			System.out.println("Square of long is " + squareNumber(longParam));
@@ -21,11 +21,11 @@ public class MethodOverloadingExample {
 			
 		}
 		
-	public static int squareNumber(byte num) {
+		public static int squareNumber(byte num) {
 			return num * num;
-	}
+		}
 		
-	public static int squareNumber(short num) {
+		public static int squareNumber(short num) {
 			return num * num;
 		}
 	
