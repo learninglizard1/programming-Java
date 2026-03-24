@@ -1,4 +1,3 @@
-// Sachin Bade | Student no. 5117566 | BIT504 ASSIGNMENT 1
 
 //  Main class
 import java.util.Scanner; //scanner
