@@ -1,21 +1,213 @@
+// Abstract and polymophism example
+// Shape class
+import java.awt.Color;
 
-Student[] student = {new Student("1","Sam","Taylor", 56,64,59,91,90,84,72),
-							new Student ("2","Olivia","Quinn",99,66,91,60,86,67,86),
-							new Student("3","Jack","Smith",87,74,75,89,72,99,90),
-							new Student	("4","David","Thomson",92,85,96,100,55,91,85),
-							new Student("5","Henry","Moore",87,64,79,80,83,96,70 ),
-							new Student ("6","Alice","Smith",50,64,78,83,50,58,83),
-							new Student("7","Amanda","William",75,54,95,55,63,83,58),
-							new Student ("8","Brian","Robins",82,88,61,70,57,74,96),
-							new Student ("9","Max","Thomas",56,76,79,100,57,57,95), 
-							new Student ("10","Charlie","Brown",56,95,90,71,73,67,55), 
-							new Student ("11","Kate","Taylor",58,85,87,59,94,85,51), 
-							new Student ("12","Grace","Donald",61,69,94,78,72,69,91), 
-							new Student ("13","Cain","Brown",96,71,56,78,65,61,98), 
-							new Student ("14","Jamie","Swift",91,60,65,81,53,88,66), 
-							new Student ("15","Davis","Jones",81,78,84,87,100,67,81), 
-							new Student ("16","Frank","Jackson",96,75,84,83,59,79,73), 
-							new Student ("17","Pamela","Miller",79,91,59,88,53,99,92), 
-							new Student ("18","Jeremy","Johnson",77,58,82,90,78,51,84), 
-							new Student ("19","Ivy","White",62,66,57,74,65,61,85), 
-							new Student("20","Bob","Garcia",97,53,76,58,59,84,61)	
+public abstract class Shape {
+	private String name;
+	private boolean filled;
+	private Color fillColour;
+	private Color lineColour;
+	public Shape() {
+		setShapeSettings();
+	}
+	public Shape(String name) {
+		this.name = name;
+		setShapeSettings();
+	}
+	public void setShapeSettings() {
+		filled = false;
+		fillColour = null;
+		lineColour = Color.BLACK;
+	}
+	public boolean isFilled() {
+		return filled;
+	}
+	public void setFilled(boolean filled) {
+		this.filled = filled;
+	}
+	public Color getFillColour() {
+		return fillColour;
+	}
+	public void setFillColour(Color fillColour) {
+		this.fillColour = fillColour;
+	}
+	public Color getLineColour() {
+		return lineColour;
+	}
+	public void setLineColour(Color lineColour) {
+		this.lineColour = lineColour;
+	}
+	public void setName (String name) {
+		this.name = name;
+	}
+	public String getName() {
+		return this.name;
+	}
+}
+
+
+// Shape2D class
+public abstract class Shape2D extends Shape {
+	private int sides;
+	private int x;
+	private int y;
+	public Shape2D() {
+		super();
+	}
+	public Shape2D(String name) {
+		super(name);
+	}
+	
+	// Declaring the abstract method: Signature only
+	
+	public abstract void drawShape();
+
+	public abstract double getArea();
+	
+	public int getSides() {
+		return sides;
+	}
+	public void setSides(int sides) {
+		this.sides = sides;
+	}
+	public int getX() {
+		return x;
+	}
+	public void setX(int x) {
+		this.x = x;
+	}
+	public int getY() {
+		return y;
+	}
+	public void setY(int y) {
+		this.y = y;
+	}
+}
+
+
+// Circle class
+public final class Circle extends Shape2D{
+	private double radius;
+	public Circle(double radius) {
+		super("Circle");
+		this.radius = radius;
+	}
+	public void drawShape() {
+		// overriding the method from the parent class
+		System.out.println("Drawing the Circle Shape");
+	}
+	
+	public double getRadius() {
+		return radius;
+	}
+	public void setRadius(double radius) {
+		this.radius = radius;
+	}
+	public double getDiameter() {
+		return 2 * this.radius;
+	}
+	public double getArea() {
+		return Math.PI * this.radius * this.radius;
+	}
+	public double getCircumference() {
+		return 2 * Math.PI * this.radius;
+	}
+}
+
+
+// Square class
+public final class Square extends Shape2D{
+	private double length;
+	public Square(double length) {
+		super("Square");
+		setSides(4);
+		this.length = length;
+	}
+	
+	public void drawShape() {
+		System.out.println("Drawing the Square Shape.");
+		
+	}
+	public double getLength() {
+		return length;
+	}
+	
+	public void setLength(double length) {
+		this.length = length;
+	}
+	
+	@Override
+	public double getArea() {
+		return this.length * this.length;
+	}
+
+
+
+
+}
+
+
+
+// Rectangle class
+public final class Rectangle extends Shape2D{
+	private double length;
+	private double width;
+	
+	public Rectangle(double length, double width) {
+		super("Rectangle");
+		this.length = length;
+		this.width = width;
+	}
+	
+	public void drawShape() {
+		System.out.println("Drawing the Rectangle Shape.");
+	}
+	
+	
+	public double getLength() {
+		return length;
+	}
+	
+	public void setLength(double length) {
+		this.length = length;
+	}
+	
+	public double getWidth() {
+		return width;
+	}
+	
+	public void setWidth(double width) {
+		this.width = width;
+	}
+	
+	public double getArea() {
+		return length * width;
+	}
+}
+
+// main shapes class
+public class ShapesProgram {
+    public static void main(String[] args) {
+        // Creating Circle class object and assigning it to Shape2D
+        Shape2D myShape = new Circle(8.9);
+        System.out.println("Name of shape is " + myShape.getName());
+        myShape.drawShape();
+        System.out.println("Area of shape " + myShape.getName() + " is " + myShape.getArea());
+        
+        System.out.println();
+        System.out.println();
+        // creating square class object and assigning it to Shape2D reference
+        myShape = new Square(4.5);
+        System.out.println("Name of shape is " + myShape.getName());
+        myShape.drawShape();
+        System.out.println("Area of shape " + myShape.getName() + " is " + myShape.getArea());
+        
+        System.out.println();
+        System.out.println();
+        // creating Rectangle class object and assigning it to Shape2D reference
+        myShape = new Rectangle(4.5, 8.6);
+        System.out.println("Name of shape is " + myShape.getName());
+        myShape.drawShape();
+        System.out.println("Area of shape " + myShape.getName() + " is " + myShape.getArea());
+    }
+}
