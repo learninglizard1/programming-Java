@@ -1,7 +1,7 @@
 import java.util.Calendar;
 import java.util.Random;
 
-public class Exercise {
+public class Calendar {
 	public static void main (String [] args) {
 		
 		Calendar cal = Calendar.getInstance();
